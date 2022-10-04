@@ -82,8 +82,6 @@ async function onInputSubmit(e) {
 
   preventDefaultOnLinks();
   refreshLightbox();
-  createObserver();
-  scrollPages();
 
   Notify.success(`Hooray! We found ${totalHits} images.`);
 }
@@ -113,7 +111,6 @@ async function incrementPages(e) {
 
   preventDefaultOnLinks();
   refreshLightbox();
-  scrollPages();
 }
 
 function createLightbox() {
@@ -131,26 +128,4 @@ function refreshLightbox() {
 function preventDefaultOnLinks() {
   const links = document.querySelectorAll('.gallery-item');
   links.forEach(el => el.addEventListener('click', e => e.preventDefault()));
-}
-
-function createObserver() {
-  let options = {
-    root: null,
-    rootMargin: '1000px',
-  };
-
-  const observer = new IntersectionObserver(incrementPages, options);
-  observer.observe(containerEl);
-}
-
-function scrollPages() {
-  const { height: cardHeight } = document
-    .querySelector('.gallery-cards')
-    .firstElementChild.getBoundingClientRect();
-
-  window.scrollBy({
-    top: cardHeight * 2,
-    behavior: 'smooth',
-    topOffset: 0,
-  });
 }

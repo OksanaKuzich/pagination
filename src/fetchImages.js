@@ -9,7 +9,7 @@ export function fetchImages(searchQuery, page) {
     orientation: 'horizontal',
     safesearch: true,
     page: page,
-    per_page: 40,
+    per_page: 12,
   });
 
   const URL = `https://pixabay.com/api/?${searchParams}`;
