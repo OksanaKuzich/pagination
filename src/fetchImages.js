@@ -19,3 +19,4 @@ export function fetchImages(searchQuery, page) {
     .then(res => res.data)
     .catch(console.log);
 }
+
